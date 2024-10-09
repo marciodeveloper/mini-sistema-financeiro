@@ -1,0 +1,68 @@
+<div
+  class="container d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="card" style="width: 400px">
+    <div class="card-body">
+      <h5 class="card-title text-center">Entrar</h5>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+            class="text-danger"
+          >
+            Por favor, insira um email válido.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            class="text-danger"
+          >
+            A senha é obrigatória.
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="showPassword"
+            (change)="togglePasswordVisibility()"
+          />
+          <label class="form-check-label" for="showPassword"
+            >Mostrar senha</label
+          >
+        </div>
+        <div class="text-danger text-center" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="loginForm.invalid"
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

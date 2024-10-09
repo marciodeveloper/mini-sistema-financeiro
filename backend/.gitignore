@@ -1,0 +1,30 @@
+# Laravel
+/vendor
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+
+# IDEs
+/.idea
+/.vscode
+
+# Laravel specific
+/public/mix-manifest.json
+/public/storage
+/storage/app/public
+/storage/framework/cache/data
+/storage/logs
+/bootstrap/cache/*.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.log
+*.sqlite
+*.sqlite3

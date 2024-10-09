@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Resumo Financeiro</h1>
+<div mat-dialog-content>
+  <mat-card>
+    <mat-card-content>
+      <p><strong>Entradas:</strong> {{ entradas | currency : "BRL" }}</p>
+      <p><strong>Saídas:</strong> {{ saidas | currency : "BRL" }}</p>
+      <p><strong>Saldo:</strong> {{ saldo | currency : "BRL" }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Exibir mensagens de carregamento ou erro, se necessário -->
+  <mat-card *ngIf="carregando">
+    <mat-card-content>
+      <p>Carregando resumo...</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="erro">
+    <mat-card-content>
+      <p>{{ erro }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="fechar()">Fechar</button>
+</div>
